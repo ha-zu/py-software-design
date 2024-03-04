@@ -36,7 +36,7 @@ def get_computer_choice() -> str:
     return random.choice(OPTIONS)
 
 
-def print_choices(player_choice, computer_choice) -> None:
+def print_choices(player_choice: str, computer_choice: str) -> None:
     print(f"あなたが選んだのは{player_choice}")
     print(f"コンピュータが選んだのは{computer_choice}")
 
@@ -60,8 +60,8 @@ def judgemen_choice(player_choice: str, computer_choice: str) -> Union[bool, Non
         or (player_choice == "パー" and computer_choice == "グー")
     ):
         return True
-    else:
-        return False
+
+    return False
 
 
 def print_result(player_choice: str, computer_choice: str) -> None:
@@ -72,11 +72,10 @@ def print_result(player_choice: str, computer_choice: str) -> None:
         computer_choice (str): computerの選択
     """
 
-    if judgemen_choice(player_choice, computer_choice) is None:
-        print("引き分けです。")
-
     if judgemen_choice(player_choice, computer_choice):
         print(f"おめでとうございます！ 「{player_choice}」の勝ちです。")
+    elif judgemen_choice(player_choice, computer_choice) is None:
+        print("引き分けです。")
     else:
         print(f"残念でした。「{computer_choice}」の勝ちです。")
 
