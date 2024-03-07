@@ -8,6 +8,10 @@ OPTIONS = ["グー", "チョキ", "パー"]
 
 
 class JankenSimulator:
+    def __init__(self) -> None:
+        self.computer_choice = None
+        self.human_choice = None
+
     def get_computer_choice(self):
         return random.choice(OPTIONS)
 
